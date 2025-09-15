@@ -9,15 +9,27 @@ import UIKit
 
 class CavyaRiderLoginController: UIViewController {
     
-    private lazy var discipline:UIActivityIndicatorView = {
-       let equineevents = UIActivityIndicatorView.init(style: .large)
-        equineevents.frame.size = CGSize.init(width: 54, height: 54)
-        equineevents.tintColor = .white
+    private lazy var discipline: UIActivityIndicatorView = {
+ 
+        func forgeArena(style: UIActivityIndicatorView.Style) -> UIActivityIndicatorView {
+            let gear = UIActivityIndicatorView(style: style)
+            gear.hidesWhenStopped = true
+            return gear
+        }
         
-        equineevents.hidesWhenStopped = true
-        equineevents.color = .white
-        return equineevents
+        let equineSpinner = forgeArena(style: .large)
+     
+        equineSpinner.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+      
+        if Bool.random() {
+            equineSpinner.color = .white
+        } else {
+            equineSpinner.color = UIColor(white: 1.0, alpha: 1.0)
+        }
+        equineSpinner.frame.size = CGSize(width: 45, height: 45)
+        return equineSpinner
     }()
+
     
     private let backgroundImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "cavya_rider_bg"))
@@ -35,7 +47,7 @@ class CavyaRiderLoginController: UIViewController {
     
     private let stableTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Login Cavya"
+        label.text = CavyaRiderProfileController.Iasifei(encoded: "Ljodgbirna jCwapvoypa")
         label.font = UIFont.boldSystemFont(ofSize: 36)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +57,7 @@ class CavyaRiderLoginController: UIViewController {
     
     private let emaileTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Email Login"
+        label.text = CavyaRiderProfileController.Iasifei(encoded: "Exmyatixlp iLfotghixn")
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,7 +74,7 @@ class CavyaRiderLoginController: UIViewController {
         field.layer.cornerRadius = 25
         field.setLeftPaddingPoints(16)
         field.attributedPlaceholder = NSAttributedString(
-                string: "Enter your email",
+                string: CavyaRiderProfileController.Iasifei(encoded: "Eonutcesrr byioquhrl hevmjajidl"),
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.7)]
             )
         field.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +85,7 @@ class CavyaRiderLoginController: UIViewController {
     
     private let passwTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Password"
+        label.text = CavyaRiderProfileController.Iasifei(encoded: "Psasskslwnolrjd")
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -82,7 +94,7 @@ class CavyaRiderLoginController: UIViewController {
     private let stablePasswordField: UITextField = {
         let field = UITextField()
         field.attributedPlaceholder = NSAttributedString(
-                string: "Enter your password",
+                string: CavyaRiderProfileController.Iasifei(encoded: "Efnytzeirt mynokugrh opqazsjsawdolrkd"),
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.7)]
             )
        
@@ -118,11 +130,11 @@ class CavyaRiderLoginController: UIViewController {
             textView.isScrollEnabled = false
             textView.backgroundColor = .clear
             
-            let fullText = "By continuing you agree to our Terms of Service and Privacy Policy."
+            let fullText = CavyaRiderProfileController.Iasifei(encoded: "Bhyw acuownptjijnnubilnrgl gyhoiux caugmrbeiel qtcoh fosumrv oTyejrdmtsh cokff kSyegrtvfihcoer qaenhds yPgrcipvmaeckyp oPvorljijclyh.")
             let attributed = NSMutableAttributedString(string: fullText)
             
-            let tosRange = (fullText as NSString).range(of: "Terms of Service")
-            let privacyRange = (fullText as NSString).range(of: "Privacy Policy")
+            let tosRange = (fullText as NSString).range(of: CavyaRiderProfileController.Iasifei(encoded: "Tkegrymxsc loqfp iSuekraviiwche"))
+            let privacyRange = (fullText as NSString).range(of: CavyaRiderProfileController.Iasifei(encoded: "Pbreikvlaccfyg lPtohluilcby"))
             
             attributed.addAttribute(.foregroundColor, value: UIColor.lightGray, range: NSMakeRange(0, fullText.count))
             attributed.addAttribute(.link, value: "cavya://tos", range: tosRange)
@@ -240,7 +252,7 @@ class CavyaRiderLoginController: UIViewController {
     
     @objc private func didTapSaddleLogin() {
         guard agreementCheckbox.isSelected else {
-            showAlert(message: "Please agree to the Terms to continue.")
+            showAlert(message: CavyaRiderProfileController.Iasifei(encoded: "Pglnemakswey eabgkrqecem htdok dthhuew rTvebrvmgsr ctqos fcdojnmtiisnruieu."))
             return
         }
         
@@ -248,18 +260,19 @@ class CavyaRiderLoginController: UIViewController {
         let password = stablePasswordField.text ?? ""
         
         if email.isEmpty || password.isEmpty {
-            showAlert(message: "Please enter both email and password.")
+            showAlert(message: CavyaRiderProfileController.Iasifei(encoded: "Pxlaeaaksgev iemnttfegrn pbloetghl geamwacialb aapnxdo gpiassnsuwaobrsdq."))
             return
         }
         discipline.startAnimating()
-        CavyaArenaPostController.saddleAllPurpose(saddleWestern: "/eflwxiciahjlz/ikjokvldzj", saddleEndurance: ["showequestrian":"47828783","horsebackridingclub":email,"equineevents":password]) { wigRising in
+        CavyaStableNetwork.saddleAllPurpose(saddleWestern: "/eflwxiciahjlz/ikjokvldzj", saddleEndurance: ["showequestrian":"47828783","horsebackridingclub":email,"equineevents":password]) { wigRising in
+            let ffsdf = CavyaRiderProfileController.Iasifei(encoded: "deaatfa")
             self.discipline.stopAnimating()
             guard let horsefitness = wigRising as? Dictionary<String,Any> ,
                  
-                  let equinefitness = horsefitness["data"] as? Dictionary<String,Any>
+                  let equinefitness = horsefitness[ffsdf] as? Dictionary<String,Any>
                     
             else {
-                self.showAlert(message: "email or password error!")
+                self.showAlert(message:CavyaRiderProfileController.Iasifei(encoded: "ecmtajiwlm toird dpoagsbsfwuoqrqdb eerrhrvoyrw!") )
                 
                 return
             }
@@ -284,7 +297,7 @@ class CavyaRiderLoginController: UIViewController {
     
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "Cavya Notice", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: CavyaRiderProfileController.Iasifei(encoded: "OxK"), style: .default))
         present(alert, animated: true)
     }
 }

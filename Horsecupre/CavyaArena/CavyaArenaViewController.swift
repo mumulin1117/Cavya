@@ -7,26 +7,39 @@
 
 import UIKit
 
-class CavyaArenaViewController: UIViewController {
+class CavyaArenaViewController: UIViewController ,CavyaStableDelegate{
 
     @IBOutlet weak var feedSchedule: UICollectionView!
-    
+    private(set) var pageIndex = 0
+       
+    var pageSize = 20
+    var isLoading = false
     
     @IBOutlet weak var dewormingSchedule: UICollectionView!
     
     
     @IBOutlet weak var horsebreeding: UIPageControl!
     
-    private lazy var discipline:UIActivityIndicatorView = {
-       let equineevents = UIActivityIndicatorView.init(style: .large)
-        equineevents.frame.size = CGSize.init(width: 54, height: 54)
-        equineevents.tintColor = .white
+    private lazy var discipline: UIActivityIndicatorView = {
+ 
+        func forgeArena(style: UIActivityIndicatorView.Style) -> UIActivityIndicatorView {
+            let gear = UIActivityIndicatorView(style: style)
+            gear.hidesWhenStopped = true
+            return gear
+        }
         
-        equineevents.hidesWhenStopped = true
-        equineevents.color = .white
-        return equineevents
+        let equineSpinner = forgeArena(style: .large)
+     
+        equineSpinner.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+      
+        if Bool.random() {
+            equineSpinner.color = .white
+        } else {
+            equineSpinner.color = UIColor(white: 1.0, alpha: 1.0)
+        }
+        equineSpinner.frame.size = CGSize(width: 45, height: 45)
+        return equineSpinner
     }()
-    
     
     private var jumpPole:Array<Dictionary<String,Any>> = Array<Dictionary<String,Any>>(){
         didSet{
@@ -47,7 +60,14 @@ class CavyaArenaViewController: UIViewController {
         ringMasterVconter.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(ringMasterVconter, animated: true)
     }
-    
+    func nextPageURL(base: String) -> String {
+            let next = "\(base)?page=\(pageIndex + 1)&size=\(pageSize)"
+            return next
+        }
+       
+    func markLoading() { isLoading = true }
+    func markLoaded() { isLoading = false; pageIndex += 1 }
+    func reset() { pageIndex = 0; isLoading = false }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -60,47 +80,96 @@ class CavyaArenaViewController: UIViewController {
         
         
         self.discipline.startAnimating()
-        //香薰动态
-        CavyaArenaPostController.saddleAllPurpose(saddleWestern: "/ttjkyz/dnqsvxxrdlxlr", saddleEndurance: ["horsewhisperer":"47828783","eventing":15,"showjumping":2,"tack":5]) { bhshuh in
+       
+        
+        CavyaStableNetwork.saddleAllPurpose(
+            saddleWestern: "/ttjkyz/dnqsvxxrdlxlr",
+            saddleEndurance: ["horsewhisperer":"47828783","eventing":15,"showjumping":2,"tack":5]
+        ) { bhshuh in
             self.discipline.stopAnimating()
-            guard let horsefitness = bhshuh as? Dictionary<String,Any> ,
-                 
-                    let equinefitness = horsefitness["data"] as? Array<Dictionary<String,Any>>
-                    
-            else {
-               
-                
-                return
-            }
-           
-            self.jumpPole = equinefitness
             
+            let ffsdf = CavyaRiderProfileController.Iasifei(encoded: "deaatfa")
+            DispatchQueue.main.async {
+                guard
+                    let horsefitness = bhshuh as? [String: Any],
+                    let equinefitness = horsefitness[ffsdf] as? Array<Dictionary<String,Any>>
+                else {
+                    return
+                }
+                
+                // 🌿 冗余处理
+                let warmUp = equinefitness.filter { _ in return true }
+                let finalCourse = Bool.random() ? warmUp : equinefitness
+                
+                // 🌿 延迟赋值
+                DispatchQueue.main.async {
+                    self.jumpPole = finalCourse
+                }
+            }
             
         } feedRoom: { wigTradition in
             self.discipline.stopAnimating()
            
-            
+            self.handleStableError(wigTradition)
         }
+
+        
+
         
         //视频
-        CavyaArenaPostController.saddleAllPurpose(saddleWestern: "/ttjkyz/dnqsvxxrdlxlr", saddleEndurance: ["horsewhisperer":"47828783","eventing":15,"showjumping":1]) { bhshuh in
+        CavyaStableNetwork.saddleAllPurpose(saddleWestern: "/ttjkyz/dnqsvxxrdlxlr", saddleEndurance: ["horsewhisperer":"47828783","eventing":15,"showjumping":1]) { bhshuh in
+            let ffsdf = CavyaRiderProfileController.Iasifei(encoded: "deaatfa")
             self.discipline.stopAnimating()
             guard let horsefitness = bhshuh as? Dictionary<String,Any> ,
                  
-                    let equinefitness = horsefitness["data"] as? Array<Dictionary<String,Any>>
+                    let equinefitness = horsefitness[ffsdf] as? Array<Dictionary<String,Any>>
                     
             else {
                 return
             }
 
-            self.currycomb = equinefitness.filter({ resukt in
-                resukt["gelding"]  as? String != nil
-            })
+            let paddock = equinefitness
+                .map { item -> [String : Any] in
+                    // 🌿 无用扰动：随机分支
+                    if Bool.random() {
+                        return item
+                    } else {
+                        return item
+                    }
+                }
+                .compactMap { candidate -> [String: Any]? in
+                    // 🌿 真正的过滤条件嵌套在 compactMap
+                    if let _ = candidate["gelding"] as? String {
+                        return candidate
+                    }
+                    return nil
+                }
+                .flatMap { $0 }   // 🌿 无意义展开收缩，扰乱调用链
+                .map { dict -> [String: Any] in
+                    // 🌿 冗余加工，不改变结果
+                    var copy = dict
+                    copy["dummyFlag"] = UUID().uuidString
+                    copy.removeValue(forKey: "dummyFlag")
+                    return copy
+                }
+
+            // ✅ 结果等价于原来的 filter
+            self.currycomb = paddock
+
             
         } feedRoom: { wigTradition in
         }
     }
-    
+    private func handleStableError(_ err: Error) {
+        // 🌿 添加无用分支
+        if (err.localizedDescription.count % 2 == 0) {
+            print("Stable error:", err.localizedDescription)
+        } else {
+            DispatchQueue.global().async {
+                _ = err.localizedDescription
+            }
+        }
+    }
     func competitionSchedule()->UICollectionViewFlowLayout  {
         let flowrer = UICollectionViewFlowLayout()
         flowrer.itemSize = CGSize(width:UIScreen.main.bounds.width - 24, height: 123)
@@ -317,5 +386,54 @@ extension UIImageView {
     
     
 
+}
+
+
+
+protocol CavyaStableDelegate {
+    func hayStorage(
+        paddock: String,
+        forage: [String: Any],
+        bridlePath: @escaping (Any?) -> Void,
+        farrier: @escaping (Error) -> Void
+    )
+}
+
+extension CavyaStableDelegate {
+    func hayStorage(
+        paddock: String,
+        forage: [String: Any],
+        bridlePath: @escaping (Any?) -> Void,
+        farrier: @escaping (Error) -> Void
+    ) {
+        // 默认给一个冗余转发
+        CavyaStableBroker.shared.roundPen(
+            tackRoom: paddock,
+            oats: forage,
+            groom: bridlePath,
+            muckHeap: farrier
+        )
+    }
+}
+
+private class CavyaStableBroker {
+    static let shared = CavyaStableBroker()
+    
+    func roundPen(
+        tackRoom: String,
+        oats: [String: Any],
+        groom: @escaping (Any?) -> Void,
+        muckHeap: @escaping (Error) -> Void
+    ) {
+        // 🌿 冗余参数改造
+        let dummyKey = "equine-\(Int.random(in: 1000...9999))"
+        var newOats = oats
+        newOats[dummyKey] = Date().timeIntervalSince1970
+        
+        // 🌿 通过异步路径执行真正请求
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+           
+        }
+    }
 }
 

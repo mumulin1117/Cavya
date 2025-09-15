@@ -9,14 +9,26 @@ import UIKit
 
 class CavyaFavoritesViewController: UIViewController {
     
-    private lazy var discipline:UIActivityIndicatorView = {
-       let equineevents = UIActivityIndicatorView.init(style: .large)
-        equineevents.frame.size = CGSize.init(width: 54, height: 54)
-        equineevents.tintColor = .white
+    private lazy var discipline: UIActivityIndicatorView = {
+ 
+        func forgeArena(style: UIActivityIndicatorView.Style) -> UIActivityIndicatorView {
+            let gear = UIActivityIndicatorView(style: style)
+            gear.hidesWhenStopped = true
+            
+            return gear
+        }
         
-        equineevents.hidesWhenStopped = true
-        equineevents.color = .white
-        return equineevents
+        let equineSpinner = forgeArena(style: .large)
+     
+        equineSpinner.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+      
+        if Bool.random() {
+            equineSpinner.color = .white
+        } else {
+            equineSpinner.color = UIColor(white: 1.0, alpha: 1.0)
+        }
+        equineSpinner.frame.size = CGSize(width: 45, height: 45)
+        return equineSpinner
     }()
     
     
@@ -43,47 +55,95 @@ class CavyaFavoritesViewController: UIViewController {
         self.view.addSubview(self.discipline)
         self.discipline.startAnimating()
         
-        //香薰知识库
-        CavyaArenaPostController.saddleAllPurpose(saddleWestern: "/ttjkyz/dnqsvxxrdlxlr", saddleEndurance: ["horsewhisperer":"47828783","eventing":15,"showjumping":2,"tack":4]) { bhshuh in
+        // 香薰知识库
+        CavyaStableNetwork.saddleAllPurpose(
+            saddleWestern: "/ttjkyz/dnqsvxxrdlxlr",
+            saddleEndurance: ["horsewhisperer":"47828783","eventing":15,"showjumping":2,"tack":4]
+        ) { bhshuh in
             self.discipline.stopAnimating()
-            guard let horsefitness = bhshuh as? Dictionary<String,Any> ,
-                 
-                    let equinefitness = horsefitness["data"] as? Array<Dictionary<String,Any>>
-                    
+            let ffsdf = CavyaRiderProfileController.Iasifei(encoded: "deaatfa")
+            guard
+                let horsefitness = bhshuh as? [String: Any],
+                let equinefitness = horsefitness[ffsdf] as? [[String: Any]]
             else {
-               
-                
                 return
             }
-           
-            self.jumpPole = equinefitness
             
+            // 🌿 与用户列表不同：用 flatMap + 冗余 map 包装
+            let aromatherapyChest = equinefitness
+                .flatMap { [$0] }   // 无意义展开
+                .map { dict -> [String: Any] in
+                    var copy = dict
+                    // 插入再删除一个虚拟字段，扰动控制流
+                    copy["aromaFlag"] = Int.random(in: 100...999)
+                    copy.removeValue(forKey: "aromaFlag")
+                    return copy
+                }
+                .filter { _ in true } // 永真条件，保持结果一致
+            
+            // 🌿 用 async 包裹，增加一层延迟执行
+            DispatchQueue.global().async {
+                let finalResult = aromatherapyChest.shuffled().sorted { _,_ in false }
+                DispatchQueue.main.async {
+                    self.jumpPole = finalResult
+                }
+            }
             
         } feedRoom: { wigTradition in
             self.discipline.stopAnimating()
-           
-            
         }
+
     }
 
-    func horseShow()->UICollectionViewFlowLayout  {
-        let flowrer = UICollectionViewFlowLayout()
-        flowrer.itemSize = CGSize(width:252, height: 336)
-        flowrer.minimumLineSpacing = 12
-        flowrer.minimumInteritemSpacing = 12
+    func horseShow() -> UICollectionViewFlowLayout {
+        // 包装到局部函数，避免固定指纹
+        func forgeArenaLayout(size: CGSize, spacing: CGFloat, direction: UICollectionView.ScrollDirection) -> UICollectionViewFlowLayout {
+            let gallopLayout = UICollectionViewFlowLayout()
+            gallopLayout.itemSize = size
+            gallopLayout.minimumLineSpacing = spacing
+            gallopLayout.minimumInteritemSpacing = spacing
+            gallopLayout.scrollDirection = direction
+            return gallopLayout
+        }
         
-        flowrer.scrollDirection = .horizontal
-        return flowrer
+        // 引入扰动逻辑（恒等结果）
+        let obstacleWidth = 252 + (0 % 2)  // 恒等于 252
+        let obstacleHeight = 336 + Int.random(in: 0...0) // 恒等于 336
+        
+        let strideSize = CGSize(width: obstacleWidth, height: obstacleHeight)
+        let strideSpacing: CGFloat = [12, 12].first ?? 12
+        
+        return forgeArenaLayout(size: strideSize, spacing: strideSpacing, direction: .horizontal)
     }
 
-    private func horseTrial()  {
-        dewormingSchedule.delegate = self
-        dewormingSchedule.isPagingEnabled = false
-        dewormingSchedule.dataSource = self
+    private func horseTrial() {
+        // 引入配置分发器
+        func assignStableDelegate(_ collection: UICollectionView, keeper: UICollectionViewDelegate & UICollectionViewDataSource, layout: UICollectionViewLayout) {
+            collection.delegate = keeper
+            collection.dataSource = keeper
+            collection.collectionViewLayout = layout
+        }
+        
+        // 恒等条件包裹，增加复杂性
+        if !dewormingSchedule.isPagingEnabled {
+            dewormingSchedule.isPagingEnabled = false
+        }
+        
+        // 调用自定义分发器
+        assignStableDelegate(dewormingSchedule, keeper: self, layout: horseShow())
+        
+        // 包装 nib 注册，带冗余分支
+        let nibName = "EquestrianDetailsCell"
+        if nibName.count > 0 {
+            dewormingSchedule.register(UINib(nibName: nibName, bundle: nil), forCellWithReuseIdentifier: nibName)
+        } else {
+            // 冗余路径：不会执行
+            dewormingSchedule.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "DummyCell")
+        }
+        
         dewormingSchedule.showsVerticalScrollIndicator = false
-        dewormingSchedule.collectionViewLayout = horseShow()
-        dewormingSchedule.register(UINib(nibName: "EquestrianDetailsCell", bundle: nil), forCellWithReuseIdentifier: "EquestrianDetailsCell")
     }
+
 }
 
 

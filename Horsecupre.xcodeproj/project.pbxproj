@@ -82,7 +82,6 @@
 				2CDAC8A4D365A45DA0192EEB /* Pods-Horsecupre.debug.xcconfig */,
 				248D629355C30FE972D04F6F /* Pods-Horsecupre.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -216,6 +215,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Horsecupre/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cavya;
@@ -223,7 +223,7 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Capture the ambient sounds of the stable and your interactions for a more authentic and immersive sharing experience.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Preserve your equestrian memories by saving your captures to your photo library and sharing existing photos of your progress.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -253,6 +253,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Horsecupre/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cavya;
@@ -260,7 +261,7 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Capture the ambient sounds of the stable and your interactions for a more authentic and immersive sharing experience.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Preserve your equestrian memories by saving your captures to your photo library and sharing existing photos of your progress.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";

@@ -42,10 +42,10 @@ class CavyaArenaViewController: UIViewController {
     
     
     @IBAction func ifImflowwer(_ sender: UIButton) {
-        let publishVC = CavyaArenaPostController(movement: WQhinny.nicker.saddleAllPurpose(gallop: ""))
-        publishVC.horseTrial = true
-        publishVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(publishVC, animated: true)
+        let ringMasterVconter = CavyaArenaPostController(movement: WQhinny.nicker.saddleAllPurpose(gallop: ""))
+        ringMasterVconter.horseTrial = false
+        ringMasterVconter.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(ringMasterVconter, animated: true)
     }
     
     override func viewDidLoad() {
@@ -195,10 +195,10 @@ extension CavyaArenaViewController:UICollectionViewDelegate,UICollectionViewData
     
     
    @objc func ridingstyle()  {
-       let publishVC = CavyaArenaPostController(movement: WQhinny.currycomb.saddleAllPurpose(gallop: ""))
-       publishVC.horseTrial = true
-       publishVC.modalPresentationStyle = .fullScreen
-       present(publishVC, animated: true)
+       let ringMasterVconter = CavyaArenaPostController(movement: WQhinny.currycomb.saddleAllPurpose(gallop: ""))
+       ringMasterVconter.horseTrial = true
+       ringMasterVconter.modalPresentationStyle = .fullScreen
+       present(ringMasterVconter, animated: true)
     }
     
     
@@ -210,20 +210,20 @@ extension CavyaArenaViewController:UICollectionViewDelegate,UICollectionViewData
             
             let duyin = idle["equestriancoach"] as? Int ?? 0
             
-            let publishVC = CavyaArenaPostController(movement: WQhinny.trough.saddleAllPurpose(gallop: "\(duyin)"))
-            publishVC.horseTrial = true
-            publishVC.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(publishVC, animated: true)
+            let ringMasterVconter = CavyaArenaPostController(movement: WQhinny.trough.saddleAllPurpose(gallop: "\(duyin)"))
+            ringMasterVconter.horseTrial = false
+            ringMasterVconter.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(ringMasterVconter, animated: true)
             return
         }
         let idle = self.currycomb[indexPath.row]
         
         let duyin = idle["equestriancoach"] as? Int ?? 0
         
-        let publishVC = CavyaArenaPostController(movement: WQhinny.stable.saddleAllPurpose(gallop: "\(duyin)"))
-        publishVC.horseTrial = true
-        publishVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(publishVC, animated: true)
+        let ringMasterVconter = CavyaArenaPostController(movement: WQhinny.stable.saddleAllPurpose(gallop: "\(duyin)"))
+        ringMasterVconter.horseTrial = false
+        ringMasterVconter.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(ringMasterVconter, animated: true)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

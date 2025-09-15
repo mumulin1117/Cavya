@@ -303,16 +303,16 @@ extension CavyaRiderLoginController: UITextViewDelegate {
                   in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         
         if URL.absoluteString == "cavya://tos" {
-            let publishVC = CavyaArenaPostController(movement: WQhinny.reinsDouble.saddleAllPurpose(gallop: ""))
-            publishVC.horseTrial = true
-            publishVC.modalPresentationStyle = .fullScreen
-            present(publishVC, animated: true)
+            let ringMasterVconter = CavyaArenaPostController(movement: WQhinny.reinsDouble.saddleAllPurpose(gallop: ""))
+            ringMasterVconter.horseTrial = true
+            ringMasterVconter.modalPresentationStyle = .fullScreen
+            present(ringMasterVconter, animated: true)
             return false
         } else if URL.absoluteString == "cavya://privacy" {
-            let publishVC = CavyaArenaPostController(movement: WQhinny.reinsWebbed.saddleAllPurpose(gallop: ""))
-            publishVC.horseTrial = true
-            publishVC.modalPresentationStyle = .fullScreen
-            present(publishVC, animated: true)
+            let ringMasterVconter = CavyaArenaPostController(movement: WQhinny.reinsWebbed.saddleAllPurpose(gallop: ""))
+            ringMasterVconter.horseTrial = true
+            ringMasterVconter.modalPresentationStyle = .fullScreen
+            present(ringMasterVconter, animated: true)
             return false
         }
         return true

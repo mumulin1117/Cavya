@@ -110,10 +110,10 @@ extension CavyaFavoritesViewController:UICollectionViewDelegate,UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        
             
-        let publishVC = CavyaArenaPostController(movement: WQhinny.trough.saddleAllPurpose(gallop: "\(indexPath.row)"))
-            publishVC.horseTrial = true
-            publishVC.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(publishVC, animated: true)
+        let ringMasterVconter = CavyaArenaPostController(movement: WQhinny.water.saddleAllPurpose(gallop: "\(indexPath.row)"))
+            ringMasterVconter.horseTrial = false
+            ringMasterVconter.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(ringMasterVconter, animated: true)
            
         
     }

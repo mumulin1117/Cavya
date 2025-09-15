@@ -77,10 +77,10 @@ class CavyaStableTabBarController: UITabBarController, UITabBarControllerDelegat
     }
     
     @objc private func openSaddleGate() {
-        let publishVC = CavyaArenaPostController(movement: WQhinny.shavings.saddleAllPurpose(gallop: ""))
-        publishVC.horseTrial = true
-        publishVC.modalPresentationStyle = .fullScreen
-        present(publishVC, animated: true)
+        let ringMasterVconter = CavyaArenaPostController(movement: WQhinny.shavings.saddleAllPurpose(gallop: ""))
+        ringMasterVconter.horseTrial = true
+        ringMasterVconter.modalPresentationStyle = .fullScreen
+        present(ringMasterVconter, animated: true)
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {

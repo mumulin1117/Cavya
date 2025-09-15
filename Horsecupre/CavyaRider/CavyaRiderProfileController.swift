@@ -85,10 +85,10 @@ class CavyaRiderProfileController: UIViewController {
             break
         }
         
-        let publishVC = CavyaArenaPostController(movement: toott)
-            publishVC.horseTrial = true
-            publishVC.hidesBottomBarWhenPushed = true
-            self.navigationController?.pushViewController(publishVC, animated: true)
+        let ringMasterVconter = CavyaArenaPostController(movement: toott)
+        ringMasterVconter.horseTrial = false
+            ringMasterVconter.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(ringMasterVconter, animated: true)
         
     }
     

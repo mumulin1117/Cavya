@@ -264,7 +264,7 @@ class CATIGOVIARiderLoginController: UIViewController {
             return
         }
         CATIGOVIAdiscipline.startAnimating()
-        CATIGOVIAStableNetwork.CATIGOVIAsaddleAllPurpose(        CATIGOVIAsaddleWestern: "/eflwxiciahjlz/ikjokvldzj",         CATIGOVIAsaddleEndurance: ["showequestrian":"47828783","horsebackridingclub":CATIGOVIAemail,"equineevents":CATIGOVIApassword]) { wigRising in
+        CATIGOVIAStableNetwork.CATIGOVIAsaddleAllPurpose(        CATIGOVIAsaddleWestern: "/pefcyqolzdz/oqwjsn",         CATIGOVIAsaddleEndurance: ["momentumControl":"47828783","balancePoint":CATIGOVIAemail,"centerOfGravity":CATIGOVIApassword]) { wigRising in
             let ffsdf = CATIGOVIARiderProfileController.CATIGOVIAIasifei(CATIGOVIAencoded: "deaatfa")
             self.CATIGOVIAdiscipline.stopAnimating()
             guard let CATIGOVIAhorsefitness = wigRising as? Dictionary<String,Any> ,
@@ -278,11 +278,11 @@ class CATIGOVIARiderLoginController: UIViewController {
             }
            
           //tpken
-            CATIGOVIAArenaPostController.CATIGOVIAlesson = CATIGOVIAequinefitness["equinerider"] as? String
+            CATIGOVIAArenaPostController.CATIGOVIAlesson = CATIGOVIAequinefitness["neckExtension"] as? String
             //email
             UserDefaults.standard.set(CATIGOVIAemail, forKey: "horsebackridingclub")
-            //id
-            UserDefaults.standard.set(CATIGOVIAequinefitness["equestrianconnections"] as? Int, forKey: "equestrianconnections")
+            //id handContact
+            UserDefaults.standard.set(CATIGOVIAequinefitness["handContact"] as? Int, forKey: "equestrianconnections")
             
             
             ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController =  CATIGOVIAStableTabBarController.init()

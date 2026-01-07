@@ -69,8 +69,8 @@ class CATIGOVIAFavoritesViewController: UIViewController {
         CATIGOVIAdiscipline.startAnimating()
         
         CATIGOVIAStableNetwork.CATIGOVIAsaddleAllPurpose(
-            CATIGOVIAsaddleWestern: "/ttjkyz/dnqsvxxrdlxlr",
-            CATIGOVIAsaddleEndurance: ["horsewhisperer": "47828783", "eventing": 15, "showjumping": 2, "tack": 4]
+            CATIGOVIAsaddleWestern: "/hozsxparplpirz/ymdbtjn",
+            CATIGOVIAsaddleEndurance: ["yardBoots": "47828783", "canterLead": 15, "doubleBridle": 2, "zebuHybrid": 4]
         ) { [weak self] CATIGOVIAbhshuh in
             guard let self = self else { return }
             self.CATIGOVIAdiscipline.stopAnimating()
@@ -163,10 +163,10 @@ extension CATIGOVIAFavoritesViewController: UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let recoCATIGOVIAgnized = collectionView.dequeueReusableCell(withReuseIdentifier: "CATIGOVIAEquestrianDetailsCell", for: indexPath) as! CATIGOVIAEquestrianDetailsCell
         let idCATIGOVIAle = self.CATIGOVIAjumpPole[indexPath.row]
-        if let culture = (idCATIGOVIAle["horseculture"] as? Array<String>)?.first {
+        if let culture = (idCATIGOVIAle["reinBack"] as? Array<String>)?.first {
             recoCATIGOVIAgnized.CATIGOVIAcenterLine.equestrianCATIGOVIAImageLoader(remoteCATIGOVIAPath: culture)
         }
-        recoCATIGOVIAgnized.CATIGOVIAlongSide.text = idCATIGOVIAle["crosscountry"] as? String
+        recoCATIGOVIAgnized.CATIGOVIAlongSide.text = idCATIGOVIAle["groomingKit"] as? String
         return recoCATIGOVIAgnized
     }
     

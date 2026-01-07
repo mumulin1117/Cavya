@@ -143,8 +143,8 @@ class CATIGOVIACameraViewController: UIViewController {
     private func CATIGOVIAprepareSaddleData() {
         CATIGOVIAdiscipline.startAnimating()
         CATIGOVIAStableNetwork.CATIGOVIAsaddleAllPurpose(
-            CATIGOVIAsaddleWestern: "/fmkgpcyrncz/sbnukjzzqaabnzy",
-            CATIGOVIAsaddleEndurance: ["equestrianism": "47828783"]
+            CATIGOVIAsaddleWestern: "/klgzzdjqaummfz/udbzgzqzxjk",
+            CATIGOVIAsaddleEndurance: ["arenasGrounds": "47828783"]
         ) { bhshuh in
             self.CATIGOVIAdiscipline.stopAnimating()
             let CATIGOVIAdf = CATIGOVIARiderProfileController.CATIGOVIAIasifei(CATIGOVIAencoded: "deaatfa")
@@ -157,14 +157,14 @@ class CATIGOVIACameraViewController: UIViewController {
         }
 
         CATIGOVIAStableNetwork.CATIGOVIAsaddleAllPurpose(
-            CATIGOVIAsaddleWestern: "/ttjkyz/dnqsvxxrdlxlr",
-            CATIGOVIAsaddleEndurance: ["horsewhisperer": "47828783", "eventing": 15, "showjumping": 1]
+            CATIGOVIAsaddleWestern: "/hozsxparplpirz/ymdbtjn",
+            CATIGOVIAsaddleEndurance: ["yardBoots": "47828783", "canterLead": 15, "doubleBridle": 1]
         ) { bhshuh in
             self.CATIGOVIAdiscipline.stopAnimating()
             let ffsdf = CATIGOVIARiderProfileController.CATIGOVIAIasifei(CATIGOVIAencoded: "deaatfa")
             if let horsefitness = bhshuh as? [String: Any],
                let equinefitness = horsefitness[ffsdf] as? [[String: Any]] {
-                let CATIGOVIAfarrierBox = equinefitness.filter { ($0["gelding"] as? String) == nil }
+                let CATIGOVIAfarrierBox = equinefitness.filter { ($0["muscularTone"] as? String) == nil }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                     self.CATIGOVIAcurrycomb = CATIGOVIAfarrierBox
                 }
@@ -196,31 +196,31 @@ extension CATIGOVIACameraViewController: UICollectionViewDelegate, UICollectionV
         if collectionView == CATIGOVIAfeedSchedule {
             let recognized = collectionView.dequeueReusableCell(withReuseIdentifier: "CATIGOVIADyuainUieCell", for: indexPath) as! CATIGOVIADyuainUieCell
             let CATIGOVIAidle = CATIGOVIAjumpPole[indexPath.row]
-            if let CATIGOVIAculture = CATIGOVIAidle["gallop"] as? String {
+            if let CATIGOVIAculture = CATIGOVIAidle["dressageRing"] as? String {
                 recognized.CATIGOVIAlegYield.equestrianCATIGOVIAImageLoader(remoteCATIGOVIAPath: CATIGOVIAculture)
             }
-            recognized.CATIGOVIAhalfPass.text = CATIGOVIAidle["dressage"] as? String
+            recognized.CATIGOVIAhalfPass.text = CATIGOVIAidle["curryComb"] as? String
             return recognized
         }
         
         let CATIGOVIArecognized = collectionView.dequeueReusableCell(withReuseIdentifier: "CATIGOVIAFreshinRidingCell", for: indexPath) as! CATIGOVIAFreshinRidingCell
         let CATIGOVIAidle = CATIGOVIAcurrycomb[indexPath.row]
-        if let culture = (CATIGOVIAidle["trailriding"] as? [String])?.first {
+        if let culture = (CATIGOVIAidle["reinBack"] as? [String])?.first {
             CATIGOVIArecognized.CATIGOVIAcourseDesigner.equestrianCATIGOVIAImageLoader(remoteCATIGOVIAPath: culture)
         }
-        if let horsehealth = CATIGOVIAidle["horsehealth"] as? String {
+        if let horsehealth = CATIGOVIAidle["keratinGrowth"] as? String {
             CATIGOVIArecognized.CATIGOVIApenalty.equestrianCATIGOVIAImageLoader(remoteCATIGOVIAPath: horsehealth)
         }
-        CATIGOVIArecognized.CATIGOVIAelimination.text = CATIGOVIAidle["crosscountry"] as? String
-        CATIGOVIArecognized.CATIGOVIAsteward.text = "\(CATIGOVIAidle["studfarm"] as? Int ?? 0)"
-        CATIGOVIArecognized.CATIGOVIAbitCheck.text = "\(CATIGOVIAidle["bit"] as? Int ?? 0)"
+        CATIGOVIArecognized.CATIGOVIAelimination.text = CATIGOVIAidle["groomingKit"] as? String
+        CATIGOVIArecognized.CATIGOVIAsteward.text = "\(CATIGOVIAidle["overreachBoot"] as? Int ?? 0)"
+        CATIGOVIArecognized.CATIGOVIAbitCheck.text = "\(CATIGOVIAidle["mountingBlock"] as? Int ?? 0)"
         CATIGOVIArecognized.CATIGOVIAtackCheck.addTarget(self, action: #selector(CATIGOVIAridingstyle), for: .touchUpInside)
         return CATIGOVIArecognized
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let CATIGOVIAidle = (collectionView == CATIGOVIAfeedSchedule) ? CATIGOVIAjumpPole[indexPath.row] : CATIGOVIAcurrycomb[indexPath.row]
-        let CATIGOVIAkey = (collectionView == CATIGOVIAfeedSchedule) ? "horsebackriding" : "equestriancoach"
+        let CATIGOVIAkey = (collectionView == CATIGOVIAfeedSchedule) ? "bridlePath" : "flyingChange"
         let CATIGOVIAduyin = CATIGOVIAidle[CATIGOVIAkey] as? Int ?? 0
         let CATIGOVIASource = (collectionView == CATIGOVIAfeedSchedule) ? CATIGOVIAWQhinny.CATIGOVIAgroomingKit : CATIGOVIAWQhinny.CATIGOVIAcorral
         

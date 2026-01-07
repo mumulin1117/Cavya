@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwiftyStoreKit
+//import SwiftyStoreKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,11 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        SwiftyStoreKit.completeTransactions(atomically: true) { _ in
-            
-        }
+//        SwiftyStoreKit.completeTransactions(atomically: true) { _ in
+//            
+//        }
       
-        ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = (CavyaArenaPostController.lesson == nil) ? CavyaRiderLoginController.init() : CavyaStableTabBarController.init()
+        ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = (CATIGOVIAArenaPostController.CATIGOVIAlesson == nil) ? CATIGOVIARiderLoginController.init() : CATIGOVIAStableTabBarController.init()
         
         window?.makeKeyAndVisible()
         return true

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CATIGOVIAEquestrianDetailsCell" customModule="Horsecupre" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="285" height="313"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="285" height="313"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gRe-GJ-BsW">
+                        <rect key="frame" x="0.0" y="0.0" width="285" height="313"/>
+                        <color key="backgroundColor" red="0.74509803919999995" green="0.74509803919999995" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CATIGOVIAhaunchesIn" translatesAutoresizingMaskIntoConstraints="NO" id="shy-vo-wj5">
+                        <rect key="frame" x="221" y="12" width="52" height="52"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="52" id="UE9-7Y-DUk"/>
+                            <constraint firstAttribute="height" constant="52" id="VbO-Vi-gMC"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00D-9N-3Iy">
+                        <rect key="frame" x="12" y="301" width="225" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gRe-GJ-BsW" secondAttribute="bottom" id="8mZ-3w-BxB"/>
+                <constraint firstAttribute="trailing" secondItem="gRe-GJ-BsW" secondAttribute="trailing" id="Ih2-lw-8GY"/>
+                <constraint firstAttribute="trailing" secondItem="00D-9N-3Iy" secondAttribute="trailing" constant="48" id="K5J-cE-QUJ"/>
+                <constraint firstAttribute="trailing" secondItem="shy-vo-wj5" secondAttribute="trailing" constant="12" id="OHM-CF-waN"/>
+                <constraint firstItem="gRe-GJ-BsW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XmA-eu-Ff3"/>
+                <constraint firstItem="gRe-GJ-BsW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ay9-PB-f0m"/>
+                <constraint firstAttribute="bottom" secondItem="00D-9N-3Iy" secondAttribute="bottom" constant="12" id="b8o-cj-Bsl"/>
+                <constraint firstItem="00D-9N-3Iy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="mYY-TU-4gU"/>
+                <constraint firstItem="shy-vo-wj5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="12" id="nrW-zI-wkm"/>
+            </constraints>
+            <size key="customSize" width="285" height="313"/>
+            <connections>
+                <outlet property="CATIGOVIAcenterLine" destination="gRe-GJ-BsW" id="sK0-7Y-8RE"/>
+                <outlet property="CATIGOVIAlongSide" destination="00D-9N-3Iy" id="0CJ-Mm-Vas"/>
+            </connections>
+            <point key="canvasLocation" x="241.98473282442748" y="113.02816901408451"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="CATIGOVIAhaunchesIn" width="52" height="52"/>
+    </resources>
+</document>

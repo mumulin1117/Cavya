@@ -67,7 +67,7 @@ class CATIGOVIARiderLoginController: UIViewController {
     
     private let CATIGOVIAstableEmailField: UITextField = {
         let CATIGOVIAfield = UITextField()
-  
+        CATIGOVIAfield.GATIGOVIAinsertDoneButton()
         CATIGOVIAfield.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         CATIGOVIAfield.backgroundColor = UIColor.white.withAlphaComponent(0.24)
         CATIGOVIAfield.textColor = .white
@@ -93,6 +93,7 @@ class CATIGOVIARiderLoginController: UIViewController {
     }()
     private let CATIGOVIAstablePasswordField: UITextField = {
         let CATIGOVIAfield = UITextField()
+        CATIGOVIAfield.GATIGOVIAinsertDoneButton()
         CATIGOVIAfield.attributedPlaceholder = NSAttributedString(
                 string: CATIGOVIARiderProfileController.CATIGOVIAIasifei(CATIGOVIAencoded: "Efnytzeirt mynokugrh opqazsjsawdolrkd"),
                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white.withAlphaComponent(0.7)]
@@ -330,6 +331,28 @@ extension CATIGOVIARiderLoginController: UITextViewDelegate {
         }
         return true
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.resignFirstResponder()
+    }
    
+}
+
+
+extension UITextField {
+    
+    func GATIGOVIAinsertDoneButton() {
+        let GATIGOVIAtotolview = UIToolbar()
+        GATIGOVIAtotolview.sizeToFit()
+        
+   
+        let flexGATIGOVIASpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let compleGATIGOVIAButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(GATIGOVIAexistAction))
+        
+        GATIGOVIAtotolview.items = [flexGATIGOVIASpace, compleGATIGOVIAButton]
+        self.inputAccessoryView = GATIGOVIAtotolview
+    }
+    
+    @objc private func GATIGOVIAexistAction() {
+        self.resignFirstResponder()
+    }
 }

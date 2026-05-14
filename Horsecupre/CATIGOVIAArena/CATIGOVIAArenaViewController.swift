@@ -313,7 +313,12 @@ extension CATIGOVIAArenaViewController: UICollectionViewDelegate, UICollectionVi
 extension UIImageView {
     func equestrianCATIGOVIAImageLoader(remoteCATIGOVIAPath: String) {
         if self.image != nil { return }
-        guard let CATIGOVIAURL = URL(string: remoteCATIGOVIAPath.trimmingCharacters(in: .whitespacesAndNewlines)) else { return }
+        let CATIGOVIATrimmedPath = remoteCATIGOVIAPath.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let CATIGOVIAURL = URL(string: CATIGOVIATrimmedPath) else { return }
+        if CATIGOVIAURL.isFileURL, let CATIGOVIAData = try? Data(contentsOf: CATIGOVIAURL), let CATIGOVIAImage = UIImage(data: CATIGOVIAData) {
+            self.image = CATIGOVIAImage
+            return
+        }
         URLSession.shared.dataTask(with: CATIGOVIAURL) { CATIGOVIAData, _, _ in
             if let CATIGOVIARaw = CATIGOVIAData, let CATIGOVIAImg = UIImage(data: CATIGOVIARaw) {
                 DispatchQueue.main.async {
@@ -343,4 +348,3 @@ private class CATIGOVIAStableBroker {
         DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {}
     }
 }
-
